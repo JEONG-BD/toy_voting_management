@@ -1,0 +1,19 @@
+app:
+  port: 8080
+
+spring:
+  application:
+    name: voting-management
+  datasource:
+    url: jdbc:mysql://localhost:3306/votingdb?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: admin
+    password: admin
+    jpa:
+      hibernate:
+        ddl: update   # create, create-drop, update, validate, none 중 선택
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+          dialect: org.hibernate.dialect.MySQL8Dialect
