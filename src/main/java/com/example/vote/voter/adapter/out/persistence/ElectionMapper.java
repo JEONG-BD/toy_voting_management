@@ -19,7 +19,7 @@ public class ElectionMapper {
 
     ElectionJPAEntity mapToEntity(Election domain){
            return ElectionJPAEntity.builder()
-                .id(null)
+                .id(domain.getId()==null? null: domain.getId())
                 .title(domain.getTitle())
                 .description(domain.getDescription())
                 .startDate(domain.getStartDate())

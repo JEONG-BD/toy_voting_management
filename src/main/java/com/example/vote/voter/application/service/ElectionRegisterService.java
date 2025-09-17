@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.example.vote.voter.application.port.in.ElectionRegisterCommand;
 import com.example.vote.voter.application.port.in.ElectionRegisterUseCase;
 
-import com.example.vote.voter.application.port.out.ElectionPort;
+import com.example.vote.voter.application.port.out.ElectionOutPort;
 import com.example.vote.voter.domain.Election;
 import com.example.vote.voter.domain.ElectionStatus;
 
@@ -15,10 +15,11 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class RegisterElectionService implements ElectionRegisterUseCase {
+public class ElectionRegisterService implements ElectionRegisterUseCase {
 
     
-    private final ElectionPort electionPort;
+    private final ElectionOutPort electionPort;
+
 
     @Override
     public boolean registerElection(ElectionRegisterCommand command) {

@@ -49,10 +49,6 @@ public class ElectionJPAEntity {
         return this.id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return this.title;
     }
@@ -75,6 +71,14 @@ public class ElectionJPAEntity {
     
     public List<VoterJPAEntity> getVoters(){
         return this.voters;
+    }
+
+    public void update(String title, String description, LocalDateTime start, LocalDateTime end, ElectionStatus status) {
+        this.title = title;
+        this.description = description;
+        this.startDate = start;
+        this.endDate = end;
+        this.status = status;
     }
     
 }

@@ -2,7 +2,7 @@ package com.example.vote.voter.application.port.in;
 
 import com.example.vote.voter.domain.Election;
 
-public interface ElectionFindByUseCase {
+public interface ElectionUpdateUseCase {
 
-    Election findById(Long electionId);
+    Election updateElection(ElectionUpdateCommand command);
 }

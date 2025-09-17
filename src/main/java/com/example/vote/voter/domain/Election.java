@@ -8,9 +8,22 @@ import lombok.Getter;
 
 @AllArgsConstructor
 public class Election {
+    @Getter
     private final Long id;
-    
-    @Getter 
+
+    @Override
+    public String toString() {
+        return "Election{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", status=" + status +
+                '}';
+    }
+
+    @Getter
     private final String title;
     
     @Getter 
