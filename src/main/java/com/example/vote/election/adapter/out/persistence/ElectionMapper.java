@@ -1,9 +1,8 @@
-package com.example.vote.voter.adapter.out.persistence;
+package com.example.vote.election.adapter.out.persistence;
 
 import org.springframework.stereotype.Component;
 
 import com.example.vote.voter.domain.Election;
-import lombok.NoArgsConstructor;
 
 @Component
 public class ElectionMapper {

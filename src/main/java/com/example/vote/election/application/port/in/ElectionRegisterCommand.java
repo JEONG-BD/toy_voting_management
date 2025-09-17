@@ -1,8 +1,6 @@
-package com.example.vote.voter.application.port.in;
+package com.example.vote.election.application.port.in;
 
 import java.time.LocalDateTime;
-
-import lombok.Getter;
 
 public class ElectionRegisterCommand {
     

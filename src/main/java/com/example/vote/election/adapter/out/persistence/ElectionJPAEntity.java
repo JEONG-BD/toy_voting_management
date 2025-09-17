@@ -1,13 +1,12 @@
-package com.example.vote.voter.adapter.out.persistence;
+package com.example.vote.election.adapter.out.persistence;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.data.convert.ReadingConverter;
+import com.example.vote.voter.adapter.out.persistence.VoterJPAEntity;
 
 import com.example.vote.voter.domain.ElectionStatus;
-import com.example.vote.voter.domain.Voter;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -19,7 +18,6 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Entity
 @NoArgsConstructor

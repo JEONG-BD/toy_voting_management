@@ -1,11 +1,11 @@
-package com.example.vote.voter.application.service;
+package com.example.vote.election.application.service;
 
 import org.springframework.stereotype.Service;
 
-import com.example.vote.voter.application.port.in.ElectionRegisterCommand;
-import com.example.vote.voter.application.port.in.ElectionRegisterUseCase;
+import com.example.vote.election.application.port.in.ElectionRegisterCommand;
+import com.example.vote.election.application.port.in.ElectionRegisterUseCase;
 
-import com.example.vote.voter.application.port.out.ElectionOutPort;
+import com.example.vote.election.application.port.out.ElectionOutPort;
 import com.example.vote.voter.domain.Election;
 import com.example.vote.voter.domain.ElectionStatus;
 

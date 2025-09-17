@@ -1,6 +1,8 @@
 package com.example.vote.voter.adapter.out.persistence;
 
 
+import com.example.vote.election.adapter.out.persistence.ElectionJPAEntity;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -20,7 +22,9 @@ public class VoterJPAEntity {
 
     private boolean hasVoted;
 
-    private Long voteId;
+    @ManyToOne(fetch = FetchType.LAZY) // Lazy 추천, N+1 문제 방지
+    @JoinColumn(name = "election_id")  
+    private ElectionJPAEntity election;
 
     public Long getId() {
         return id;
@@ -38,7 +42,9 @@ public class VoterJPAEntity {
         return hasVoted;
     }
 
-    public Long getVoteId() {
-        return voteId;
+    public ElectionJPAEntity getElection(){
+        return election;
     }
+
+    
 }

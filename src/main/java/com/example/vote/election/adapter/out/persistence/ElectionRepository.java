@@ -1,4 +1,4 @@
-package com.example.vote.voter.adapter.out.persistence;
+package com.example.vote.election.adapter.out.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -12,7 +12,7 @@ public class VoterAdapter implements RegisterVoterPort {
 
     @Override
     public void registerVoter(Voter voter) {
-        VoterJPAEntity voterJPAEntity = voterMapper.mapToDomainEntity(voter);
-        voterRepository.save(voterJPAEntity);
+        //VoterJPAEntity voterJPAEntity = voterMapper.mapToEntity(voter);
+        //voterRepository.save(voterJPAEntity);
     }
 }

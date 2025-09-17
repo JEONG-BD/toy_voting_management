@@ -1,4 +1,4 @@
-package com.example.vote.voter.application.port.in;
+package com.example.vote.election.application.port.in;
 
 import com.example.vote.voter.domain.Election;
 

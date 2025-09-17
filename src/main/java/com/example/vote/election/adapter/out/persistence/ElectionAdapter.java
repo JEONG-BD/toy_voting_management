@@ -1,16 +1,14 @@
-package com.example.vote.voter.adapter.out.persistence;
+package com.example.vote.election.adapter.out.persistence;
 
 import com.example.vote.voter.domain.ElectionStatus;
 import org.springframework.stereotype.Component;
 
-import com.example.vote.voter.application.port.out.ElectionOutPort;
+import com.example.vote.election.application.port.out.ElectionOutPort;
 import com.example.vote.voter.domain.Election;
 
 import lombok.RequiredArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -46,5 +44,13 @@ public class ElectionAdapter implements ElectionOutPort{
 
         return electionMapper.mapToDomain(existing);
     }
-}   
+
+    @Override
+    public void removeElection(Long electionId) {
+        ElectionJPAEntity existing = electionRepository.findById(electionId)
+                .orElseThrow(() -> new NoSuchElementException("Election not found"));
+        electionRepository.delete(existing);
+
+    }
+}
  
