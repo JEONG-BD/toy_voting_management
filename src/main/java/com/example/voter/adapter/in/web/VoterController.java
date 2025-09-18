@@ -19,13 +19,10 @@ public class VoterController {
 
     private final VoterRegisterUseCase registerUseCase;
     private final VoterUpdateUseCase updateUseCase;
-
+    private final VoterFindUseCase findUseCase;
     @PostMapping
     @Operation(summary = "Register a voter")
     public void registerVoter(@RequestBody VoterRequestDto dto){
-        System.out.println(dto);
-        System.out.println(dto);
-        System.out.println(dto);
         VoterRegisterCommand command = new VoterRegisterCommand(dto.name(), dto.email(), dto.electionId());
         System.out.println("command = " + command);
         registerUseCase.registerVoter(command);
