@@ -4,8 +4,10 @@ package com.example.voter.domain;
 import com.example.election.domain.Election;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 
+@ToString
 @AllArgsConstructor
 public class Voter {
 
@@ -29,7 +31,7 @@ public class Voter {
     }
 
     public static Voter withId(Long id, String name, String email, Boolean hasVoted, Election election){
-        return new Voter(null, name, email, hasVoted, election);
+        return new Voter(id, name, email, hasVoted, election);
     }
 
 }

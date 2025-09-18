@@ -6,10 +6,12 @@ import com.example.election.adapter.out.persistence.ElectionJPAEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class VoterJPAEntity {
 
     @Id

@@ -3,6 +3,7 @@ package com.example.voter.application.service;
 import com.example.election.application.port.out.ElectionOutPort;
 import com.example.election.domain.Election;
 import com.example.election.domain.ElectionStatus;
+import com.example.voter.application.port.in.VoterFindByIdUseCase;
 import com.example.voter.application.port.in.VoterRegisterCommand;
 import com.example.voter.application.port.in.VoterRegisterUseCase;
 import com.example.voter.application.port.out.VoterOutPort;
@@ -12,19 +13,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class VoterRegisterService implements VoterRegisterUseCase {
+public class VoterFindByIdService implements VoterFindByIdUseCase {
 
     private final VoterOutPort voterOutPort;
     private final ElectionOutPort electionOutPort;
-    @Override
-    public boolean registerVoter(VoterRegisterCommand command) {
-        Election election = electionOutPort.findById(command.getElectionId());
 
-        if (!election.getStatus().equals(ElectionStatus.PENDING)){
-            return false;
-        }
-        Voter voter = Voter.withoutId(command.getName(), command.getEmail(), election);
-        voterOutPort.registerVoter(voter);
-        return false;
+    @Override
+    public Voter findByIdVoter(Long voterId) {
+        return voterOutPort.findByIdVoter(voterId);
     }
 }

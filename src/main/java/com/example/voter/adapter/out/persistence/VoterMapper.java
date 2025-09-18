@@ -12,6 +12,7 @@ public class VoterMapper {
     private final ElectionMapper electionMapper;
 
     Voter mapToDomain(VoterJPAEntity voterEntity){
+
         return Voter.withId(voterEntity.getId(),
                 voterEntity.getName(),
                 voterEntity.getEmail(),
@@ -20,7 +21,8 @@ public class VoterMapper {
     }
 
     VoterJPAEntity mapToEntity(Voter voter){
-        return new VoterJPAEntity(voter.getId(),
+        return new VoterJPAEntity(
+                voter.getId(),
                 voter.getName(),
                 voter.getEmail(),
                 voter.getHasVoted(),
