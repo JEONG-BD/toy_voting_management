@@ -8,7 +8,7 @@
         <version>3.5.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example.vote</groupId>
+    <groupId>com.example</groupId>
     <artifactId>voting-management</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>demo</name>
