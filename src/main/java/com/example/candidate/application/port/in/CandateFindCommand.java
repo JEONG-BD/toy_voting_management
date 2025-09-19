@@ -1,0 +1,33 @@
+package com.example.candidate.application.port.in;
+
+
+
+public class CandateFindCommand {
+    private final String name;
+    private final int age;
+    private final String party;
+    private final long electionId;
+
+    public CandateFindCommand(String name, Integer age, String party, long electionId) {
+        this.name = name;
+        this.age = age;
+        this.party = party;
+        this.electionId = electionId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public String getParty() {
+        return party;
+    }
+
+    public long getElectionId() {
+        return electionId;
+    }
+}

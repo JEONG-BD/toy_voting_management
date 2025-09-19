@@ -1,7 +1,6 @@
 package com.example.candidate.adapter.out.persistence;
 
 import com.example.election.adapter.out.persistence.ElectionJPAEntity;
-import com.example.election.domain.Election;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -50,5 +49,14 @@ public class CandidateJPAEntity {
 
     public ElectionJPAEntity getElection() {
         return election;
+    }
+
+    public void updateEntity(long id, String name, int age, String party, int voteCount, ElectionJPAEntity election){
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.party = party;
+        this.voteCount = voteCount;
+        this.election = election;
     }
 }

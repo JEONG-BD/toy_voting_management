@@ -5,4 +5,5 @@ import com.example.candidate.domain.Candidate;
 public interface CandidateOutPort {
 
     Candidate registerCandidate(Candidate candidate);
+    Candidate updateCandidate(Candidate candidate);
 }

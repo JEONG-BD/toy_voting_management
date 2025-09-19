@@ -5,6 +5,7 @@ import com.example.election.domain.Election;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+
 @AllArgsConstructor
 public class Candidate {
 
