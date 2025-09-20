@@ -23,9 +23,9 @@ public class CandidateAdatpter implements CandidateOutPort {
 
     @Override
     public Candidate registerCandidate(Candidate candidate) {
-        CandidateJPAEntity candidateJPAEntity = candidateMapper.mapToDomain(candidate);
+        CandidateJPAEntity candidateJPAEntity = candidateMapper.mapToEntity(candidate);
         candidateRepository.save(candidateJPAEntity);
-        return candidateMapper.mapToEntity(candidateJPAEntity);
+        return candidateMapper.mapToDomain(candidateJPAEntity);
     }
 
     @Override
@@ -41,6 +41,14 @@ public class CandidateAdatpter implements CandidateOutPort {
                 candidate.getVoteCount(),
                 electionEntity);
 
-        return candidateMapper.mapToEntity(candidateJPAEntity);
+        return candidateMapper.mapToDomain(candidateJPAEntity);
+    }
+
+    @Override
+    public Candidate findById(Long id) {
+        CandidateJPAEntity candidateJPAEntity = candidateRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("not existing"));
+
+        return candidateMapper.mapToDomain(candidateJPAEntity);
     }
 }

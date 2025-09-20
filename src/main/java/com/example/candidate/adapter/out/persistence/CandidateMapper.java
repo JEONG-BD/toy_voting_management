@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class CandidateMapper {
 
     private final ElectionMapper electionMapper;
-    public CandidateJPAEntity mapToDomain(Candidate candidate){
+    public CandidateJPAEntity mapToEntity(Candidate candidate){
         return new CandidateJPAEntity(
                 candidate.getId(),
                 candidate.getName(),
@@ -21,7 +21,7 @@ public class CandidateMapper {
 
     }
 
-    public Candidate mapToEntity(CandidateJPAEntity entity){
+    public Candidate mapToDomain(CandidateJPAEntity entity){
         return Candidate.withId(
                 entity.getId(),
                 entity.getAge(),

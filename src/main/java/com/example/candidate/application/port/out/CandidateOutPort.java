@@ -6,4 +6,5 @@ public interface CandidateOutPort {
 
     Candidate registerCandidate(Candidate candidate);
     Candidate updateCandidate(Candidate candidate);
+    Candidate findById(Long id);
 }
