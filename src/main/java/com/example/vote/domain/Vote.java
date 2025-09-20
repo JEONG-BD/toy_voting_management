@@ -14,16 +14,16 @@ public class Vote {
 
     private final Voter voter;
 
-    private final Election election;
+    //private final Election election;
 
     private final Candidate candidate;
 
-    public static Vote withoutId(long id, Voter voter, Election election, Candidate candidate){
-        return new Vote(null, voter, election, candidate);
+    public static Vote withoutId(Long id, Voter voter, Candidate candidate){
+        return new Vote(null, voter, candidate);
     }
 
-    public static Vote withId(long id, Voter voter, Election election, Candidate candidate){
-        return new Vote(id, voter, election, candidate);
+    public static Vote withId(Long id, Voter voter, Candidate candidate){
+        return new Vote(id, voter, candidate);
     }
 
 
@@ -35,9 +35,6 @@ public class Vote {
         return voter;
     }
 
-    public Election getElection() {
-        return election;
-    }
 
     public Candidate getCandidate() {
         return candidate;

@@ -4,24 +4,18 @@ import com.example.election.domain.Election;
 
 public class VoteCastCommand {
     private final Long voterId;
-    private final Long electionId;
-    private final Long candiddateId;
+    private final Long candidateId;
 
-    public VoteCastCommand(Long voterId, Long electionId, Long candiddateId) {
+    public VoteCastCommand(Long voterId, Long candidateId) {
         this.voterId = voterId;
-        this.electionId = electionId;
-        this.candiddateId = candiddateId;
+        this.candidateId = candidateId;
     }
 
     public Long getVoterId() {
         return voterId;
     }
 
-    public Long getElectionId() {
-        return electionId;
-    }
-
-    public Long getCandiddateId() {
-        return candiddateId;
+    public Long getCandidateId() {
+        return candidateId;
     }
 }

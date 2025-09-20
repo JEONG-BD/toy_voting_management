@@ -7,10 +7,12 @@ import com.example.election.domain.Election;
 import com.example.voter.adapter.out.persistence.VoterJPAEntity;
 import com.example.voter.domain.Voter;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name="vote")
 public class VoteJPAEntity {
 
@@ -20,8 +22,10 @@ public class VoteJPAEntity {
 
     private VoterJPAEntity voter;
 
+    @OneToOne
     private CandidateJPAEntity candidate;
 
+    @ManyToOne
     private ElectionJPAEntity election;
 
     public Long getId() {

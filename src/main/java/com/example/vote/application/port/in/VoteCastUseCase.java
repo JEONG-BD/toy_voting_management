@@ -1,6 +1,8 @@
 package com.example.vote.application.port.in;
 
+import com.example.vote.domain.Vote;
+
 public interface VoteCastUseCase {
 
-    void castVote(VoteCastCommand command);
+    Vote castVote(VoteCastCommand command);
 }
