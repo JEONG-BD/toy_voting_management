@@ -1,11 +1,8 @@
 package com.example.vote.adapter.out.persistence;
 
 import com.example.candidate.adapter.out.persistence.CandidateJPAEntity;
-import com.example.candidate.domain.Candidate;
 import com.example.election.adapter.out.persistence.ElectionJPAEntity;
-import com.example.election.domain.Election;
-import com.example.voter.adapter.out.persistence.VoterJPAEntity;
-import com.example.voter.domain.Voter;
+import com.example.voter.adapter.out.persistence.entity.VoterJPAEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

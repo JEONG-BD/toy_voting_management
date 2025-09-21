@@ -1,14 +1,12 @@
-package com.example.voter.adapter.out.persistence;
+package com.example.voter.adapter.out.persistence.entity;
 
 
 import com.example.election.adapter.out.persistence.ElectionJPAEntity;
 
 import com.example.vote.adapter.out.persistence.VoteJPAEntity;
-import com.example.vote.domain.Vote;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 import java.util.ArrayList;
@@ -18,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Table(name = "voter")
 public class VoterJPAEntity {
 
     @Id
@@ -36,7 +35,6 @@ public class VoterJPAEntity {
 
     @OneToMany(mappedBy = "voter", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VoteJPAEntity> votes = new ArrayList<>();
-    
 
     public Long getId() {
         return id;

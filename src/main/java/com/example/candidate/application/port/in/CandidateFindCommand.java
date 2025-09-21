@@ -2,13 +2,13 @@ package com.example.candidate.application.port.in;
 
 
 
-public class CandateFindCommand {
+public class CandidateFindCommand {
     private final String name;
-    private final int age;
+    private final Integer age;
     private final String party;
-    private final long electionId;
+    private final Long electionId;
 
-    public CandateFindCommand(String name, Integer age, String party, long electionId) {
+    public CandidateFindCommand(String name, Integer age, String party, long electionId) {
         this.name = name;
         this.age = age;
         this.party = party;
