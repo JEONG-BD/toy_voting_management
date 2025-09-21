@@ -20,12 +20,16 @@ public class VoteJPAEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="voter_id")
     private VoterJPAEntity voter;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="candidate_id")
     private CandidateJPAEntity candidate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="election_id")
     private ElectionJPAEntity election;
 
     public Long getId() {

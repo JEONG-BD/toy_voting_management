@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.vote.adapter.out.persistence.VoteJPAEntity;
 import com.example.voter.adapter.out.persistence.VoterJPAEntity;
 
 import com.example.election.domain.ElectionStatus;
@@ -42,6 +43,9 @@ public class ElectionJPAEntity {
     
     @OneToMany(mappedBy = "election", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VoterJPAEntity> voters = new ArrayList<>();
+
+    @OneToMany(mappedBy = "election", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<VoteJPAEntity> votes = new ArrayList<>();
 
     public Long getId() {
         return this.id;

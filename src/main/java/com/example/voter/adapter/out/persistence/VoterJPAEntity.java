@@ -3,10 +3,16 @@ package com.example.voter.adapter.out.persistence;
 
 import com.example.election.adapter.out.persistence.ElectionJPAEntity;
 
+import com.example.vote.adapter.out.persistence.VoteJPAEntity;
+import com.example.vote.domain.Vote;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.ToString;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -24,9 +30,13 @@ public class VoterJPAEntity {
 
     private boolean hasVoted;
 
-    @ManyToOne(fetch = FetchType.LAZY) // Lazy 추천, N+1 문제 방지
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "election_id")  
     private ElectionJPAEntity election;
+
+    @OneToMany(mappedBy = "voter", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<VoteJPAEntity> votes = new ArrayList<>();
+    
 
     public Long getId() {
         return id;
@@ -48,5 +58,11 @@ public class VoterJPAEntity {
         return election;
     }
 
-    
+    public VoterJPAEntity(Long id, String name, String email, boolean hasVoted, ElectionJPAEntity election) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.hasVoted = hasVoted;
+        this.election = election;
+    }
 }
