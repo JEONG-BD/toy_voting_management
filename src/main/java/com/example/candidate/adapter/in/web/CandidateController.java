@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/candidate")
@@ -18,7 +20,7 @@ public class CandidateController {
 
     private final CandidateRegisterUseCase registerUseCase;
     private final CandidateUpdateUseCase updateUseCase;
-    //private final CandidateFindAllUseCase findAllUseCase;
+    private final CandidateFindAllUseCase findAllUseCase;
 
     @PostMapping
     @Operation(description = "Register a candidate")
@@ -30,12 +32,18 @@ public class CandidateController {
 
     @GetMapping
     @Operation(description = "Find a candidate")
-    public void findByFilterCandidate(@RequestParam(name = "name", required = false) String name,
-                                      @RequestParam(name = "age" , required = false) int age,
-                                      @RequestParam(name = "party", required = false) String party,
-                                      @RequestParam(name ="electionId", required = true) Long electionId){
+    public ResponseEntity<List<CandidateResponseDTO>> findByFilterCandidate(@RequestParam(name = "name", required = false) String name,
+                                                      @RequestParam(name = "age" , required = false)  Integer age,
+                                                      @RequestParam(name = "party", required = false) String party,
+                                                      @RequestParam(name ="electionId", required = true) Long electionId){
 
-        CandateFindCommand command = new CandateFindCommand(name, age, party, electionId);
+        CandidateFindCommand command = new CandidateFindCommand(name, age, party, electionId);
+        List<Candidate> allCandidate = findAllUseCase.findAllCandidate(command);
+        List<CandidateResponseDTO> result = allCandidate
+                .stream()
+                .map(CandidateResponseDTO::from)
+                .toList();
+        return ResponseEntity.ok(result);
     }
 
     @PatchMapping

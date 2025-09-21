@@ -2,9 +2,8 @@ package com.example.vote.adapter.out.persistence;
 
 import com.example.candidate.adapter.out.persistence.CandidateJPAEntity;
 import com.example.candidate.adapter.out.persistence.CandidateMapper;
-import com.example.election.adapter.out.persistence.ElectionMapper;
 import com.example.vote.domain.Vote;
-import com.example.voter.adapter.out.persistence.VoterJPAEntity;
+import com.example.voter.adapter.out.persistence.entity.VoterJPAEntity;
 import com.example.voter.adapter.out.persistence.VoterMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

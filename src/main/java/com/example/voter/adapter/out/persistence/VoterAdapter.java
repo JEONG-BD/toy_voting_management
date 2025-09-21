@@ -1,5 +1,7 @@
 package com.example.voter.adapter.out.persistence;
 
+import com.example.voter.adapter.out.persistence.entity.VoterJPAEntity;
+import com.example.voter.adapter.out.persistence.repository.VoterRepository;
 import com.example.voter.application.port.out.VoterOutPort;
 import com.example.voter.domain.Voter;
 import lombok.RequiredArgsConstructor;

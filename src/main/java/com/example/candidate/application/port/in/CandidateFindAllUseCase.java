@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface CandidateFindAllUseCase {
 
-    List<Candidate> findAllCandidate(CandateFindCommand command);
+    List<Candidate> findAllCandidate(CandidateFindCommand command);
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.vote.adapter.out.persistence.VoteJPAEntity;
-import com.example.voter.adapter.out.persistence.VoterJPAEntity;
+import com.example.voter.adapter.out.persistence.entity.VoterJPAEntity;
 
 import com.example.election.domain.ElectionStatus;
 

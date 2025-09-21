@@ -1,5 +1,6 @@
 package com.example.candidate.adapter.out.persistence;
 
+import com.example.candidate.application.port.in.CandidateFindCommand;
 import com.example.candidate.application.port.out.CandidateOutPort;
 import com.example.candidate.domain.Candidate;
 import com.example.election.adapter.out.persistence.ElectionJPAEntity;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -50,5 +52,13 @@ public class CandidateAdatpter implements CandidateOutPort {
                 .orElseThrow(() -> new NoSuchElementException("not existing"));
 
         return candidateMapper.mapToDomain(candidateJPAEntity);
+    }
+
+    @Override
+    public List<Candidate> findByFilter(CandidateFindCommand command) {
+        return candidateRepository.findByFilter(command)
+                .stream()
+                .map(candidateMapper::mapToDomain)
+                .toList();
     }
 }
