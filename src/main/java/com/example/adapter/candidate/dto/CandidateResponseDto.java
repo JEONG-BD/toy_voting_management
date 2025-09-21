@@ -2,11 +2,11 @@ package com.example.adapter.candidate.dto;
 
 import com.example.domain.Candidate;
 
-public record CandidateResponseDTO(long id, String name, int age, String party, long electionId) {
+public record CandidateResponseDto(long id, String name, int age, String party, long electionId) {
 
 
-    public static CandidateResponseDTO from(Candidate candidate){
-        return new CandidateResponseDTO(candidate.getId(),
+    public static CandidateResponseDto from(Candidate candidate){
+        return new CandidateResponseDto(candidate.getId(),
                 candidate.getName(),
                 candidate.getAge(),
                 candidate.getParty(),
