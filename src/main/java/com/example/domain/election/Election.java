@@ -4,23 +4,13 @@ import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
+@ToString
 @AllArgsConstructor
 public class Election {
     @Getter
     private final Long id;
-
-    @Override
-    public String toString() {
-        return "Election{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", status=" + status +
-                '}';
-    }
 
     @Getter
     private final String title;

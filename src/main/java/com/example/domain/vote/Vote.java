@@ -21,7 +21,6 @@ public class Vote {
         return new Vote(id, voter, candidate);
     }
 
-
     public Long getId() {
         return id;
     }
