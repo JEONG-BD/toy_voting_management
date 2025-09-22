@@ -2,7 +2,7 @@ package com.example.adapter.vote.out.persistence;
 
 import com.example.adapter.candidate.out.persistence.CandidateJPAEntity;
 import com.example.adapter.candidate.out.persistence.CandidateMapper;
-import com.example.domain.Vote;
+import com.example.domain.vote.Vote;
 import com.example.adapter.voter.out.persistence.entity.VoterJPAEntity;
 import com.example.adapter.voter.out.persistence.VoterMapper;
 import lombok.RequiredArgsConstructor;

@@ -1,13 +1,13 @@
 package com.example.application.vote.service;
 
 import com.example.application.candidate.port.out.CandidateOutPort;
-import com.example.domain.Candidate;
+import com.example.domain.candidate.Candidate;
 import com.example.application.vote.port.in.VoteCastCommand;
 import com.example.application.vote.port.in.VoteCastUseCase;
 import com.example.application.vote.port.out.VoteOutPort;
-import com.example.domain.Vote;
+import com.example.domain.vote.Vote;
 import com.example.application.voter.port.out.VoterOutPort;
-import com.example.domain.Voter;
+import com.example.domain.voter.Voter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

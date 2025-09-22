@@ -1,5 +1,7 @@
-package com.example.domain;
+package com.example.domain.vote;
 
+import com.example.domain.voter.Voter;
+import com.example.domain.candidate.Candidate;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -28,7 +30,6 @@ public class Vote {
     public Voter getVoter() {
         return voter;
     }
-
 
     public Candidate getCandidate() {
         return candidate;

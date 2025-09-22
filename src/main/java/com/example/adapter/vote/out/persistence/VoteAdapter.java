@@ -1,7 +1,7 @@
 package com.example.adapter.vote.out.persistence;
 
 import com.example.application.vote.port.out.VoteOutPort;
-import com.example.domain.Vote;
+import com.example.domain.vote.Vote;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
