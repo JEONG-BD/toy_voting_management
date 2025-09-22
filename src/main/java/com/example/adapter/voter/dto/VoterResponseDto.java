@@ -1,6 +1,6 @@
 package com.example.adapter.voter.dto;
 
-import com.example.domain.Voter;
+import com.example.domain.voter.Voter;
 
 public record VoterResponseDto(Long id, String name, String email) {
 

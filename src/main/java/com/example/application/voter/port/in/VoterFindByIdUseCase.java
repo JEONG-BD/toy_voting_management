@@ -1,6 +1,6 @@
 package com.example.application.voter.port.in;
 
-import com.example.domain.Voter;
+import com.example.domain.voter.Voter;
 
 public interface VoterFindByIdUseCase {
 

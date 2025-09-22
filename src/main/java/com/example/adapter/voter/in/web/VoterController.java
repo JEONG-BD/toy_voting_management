@@ -8,7 +8,7 @@ import com.example.application.voter.port.in.VoterRegisterCommand;
 import com.example.application.voter.port.in.VoterRegisterUseCase;
 
 import com.example.application.voter.port.in.VoterUpdateUseCase;
-import com.example.domain.Voter;
+import com.example.domain.voter.Voter;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

@@ -3,7 +3,7 @@ package com.example.application.voter.service;
 import com.example.application.election.port.out.ElectionOutPort;
 import com.example.application.voter.port.in.VoterFindByIdUseCase;
 import com.example.application.voter.port.out.VoterOutPort;
-import com.example.domain.Voter;
+import com.example.domain.voter.Voter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
