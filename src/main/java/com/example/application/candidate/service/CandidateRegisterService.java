@@ -3,9 +3,9 @@ package com.example.application.candidate.service;
 import com.example.application.candidate.port.in.CandidateRegisterCommand;
 import com.example.application.candidate.port.in.CandidateRegisterUseCase;
 import com.example.application.candidate.port.out.CandidateOutPort;
-import com.example.domain.Candidate;
+import com.example.domain.candidate.Candidate;
 import com.example.application.election.port.out.ElectionOutPort;
-import com.example.domain.Election;
+import com.example.domain.election.Election;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

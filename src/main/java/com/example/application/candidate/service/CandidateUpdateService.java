@@ -3,9 +3,9 @@ package com.example.application.candidate.service;
 import com.example.application.candidate.port.in.CandidateUpdateCommand;
 import com.example.application.candidate.port.in.CandidateUpdateUseCase;
 import com.example.application.candidate.port.out.CandidateOutPort;
-import com.example.domain.Candidate;
+import com.example.domain.candidate.Candidate;
 import com.example.application.election.port.out.ElectionOutPort;
-import com.example.domain.Election;
+import com.example.domain.election.Election;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,13 +20,16 @@ public class CandidateUpdateService implements CandidateUpdateUseCase {
     public Candidate updateCandidate(CandidateUpdateCommand command) {
         Election election = electionOutPort.findById(command.getElectionId());
 
-        Candidate candidate = Candidate.withId(command.getId(),
+        Candidate existing = candidateOutPort.findById(command.getId());
+
+        Candidate updatedCandidate = existing.updated(
                 command.getAge(),
                 command.getName(),
                 command.getParty(),
-                0,
-                election);
-        return candidateOutPort.updateCandidate(candidate);
+                election
+        );
+
+        return candidateOutPort.updateCandidate(updatedCandidate);
     }
 
 }

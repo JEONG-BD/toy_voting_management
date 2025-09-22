@@ -1,6 +1,6 @@
 package com.example.adapter.candidate.out.persistence;
 
-import com.example.domain.Candidate;
+import com.example.domain.candidate.Candidate;
 import com.example.adapter.election.out.persistence.ElectionMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

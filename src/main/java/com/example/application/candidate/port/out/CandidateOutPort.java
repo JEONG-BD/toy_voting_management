@@ -1,7 +1,7 @@
 package com.example.application.candidate.port.out;
 
 import com.example.application.candidate.port.in.CandidateFindCommand;
-import com.example.domain.Candidate;
+import com.example.domain.candidate.Candidate;
 
 import java.util.List;
 

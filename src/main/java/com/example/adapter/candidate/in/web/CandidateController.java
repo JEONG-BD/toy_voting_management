@@ -4,7 +4,7 @@ import com.example.adapter.candidate.dto.CandidateUpdateRequestDto;
 import com.example.application.candidate.port.in.*;
 import com.example.adapter.candidate.dto.CandidateRequestDto;
 import com.example.adapter.candidate.dto.CandidateResponseDto;
-import com.example.domain.Candidate;
+import com.example.domain.candidate.Candidate;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

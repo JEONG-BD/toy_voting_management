@@ -2,7 +2,7 @@ package com.example.adapter.candidate.out.persistence;
 
 import com.example.application.candidate.port.in.CandidateFindCommand;
 import com.example.application.candidate.port.out.CandidateOutPort;
-import com.example.domain.Candidate;
+import com.example.domain.candidate.Candidate;
 import com.example.adapter.election.out.persistence.ElectionJPAEntity;
 import com.example.adapter.election.out.persistence.ElectionMapper;
 import com.example.adapter.election.out.persistence.ElectionRepository;
