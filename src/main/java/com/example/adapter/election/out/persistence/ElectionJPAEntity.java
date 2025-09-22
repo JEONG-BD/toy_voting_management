@@ -7,15 +7,7 @@ import java.util.List;
 import com.example.adapter.vote.out.persistence.VoteJPAEntity;
 import com.example.adapter.voter.out.persistence.entity.VoterJPAEntity;
 
-import com.example.domain.ElectionStatus;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -39,7 +31,8 @@ public class ElectionJPAEntity {
 
     private LocalDateTime endDate;
 
-    private ElectionStatus status;
+    @Enumerated(EnumType.STRING)
+    private ElectionStatusJPAEntity status;
     
     @OneToMany(mappedBy = "election", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VoterJPAEntity> voters = new ArrayList<>();
@@ -67,7 +60,7 @@ public class ElectionJPAEntity {
         return this.endDate;
     }
 
-    public ElectionStatus getStatus() {
+    public ElectionStatusJPAEntity getStatus() {
         return this.status;
     }
     
@@ -75,7 +68,7 @@ public class ElectionJPAEntity {
         return this.voters;
     }
 
-    public void update(String title, String description, LocalDateTime start, LocalDateTime end, ElectionStatus status) {
+    public void update(String title, String description, LocalDateTime start, LocalDateTime end, ElectionStatusJPAEntity status) {
         this.title = title;
         this.description = description;
         this.startDate = start;

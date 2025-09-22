@@ -1,6 +1,6 @@
 package com.example.adapter.election.dto;
 
-import com.example.domain.Election;
+import com.example.domain.election.Election;
 
 import java.time.LocalDateTime;
 

@@ -1,13 +1,14 @@
 package com.example.adapter.election.out.persistence;
 
-import com.example.domain.ElectionStatus;
+import com.example.application.election.port.in.ElectionFindFilterCommand;
 import org.springframework.stereotype.Component;
 
 import com.example.application.election.port.out.ElectionOutPort;
-import com.example.domain.Election;
+import com.example.domain.election.Election;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Component
@@ -32,6 +33,13 @@ public class ElectionAdapter implements ElectionOutPort{
     }
 
     @Override
+    public List<Election> findByFilter(ElectionFindFilterCommand command) {
+        return electionRepository.findByFilter(command)
+                .stream()
+                .map(electionMapper::mapToDomain).toList();
+    }
+
+    @Override
     public Election updateElection(Election election) {
         ElectionJPAEntity existing = electionRepository.findById(election.getId())
                 .orElseThrow(() -> new NoSuchElementException("Election not found"));
@@ -40,7 +48,7 @@ public class ElectionAdapter implements ElectionOutPort{
                 election.getDescription(),
                 election.getStartDate(),
                 election.getEndDate(),
-                ElectionStatus.PENDING);
+                ElectionStatusJPAEntity.PENDING);
 
         return electionMapper.mapToDomain(existing);
     }

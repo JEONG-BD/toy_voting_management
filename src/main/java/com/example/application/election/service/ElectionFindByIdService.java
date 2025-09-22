@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.application.election.port.in.ElectionFindByIdUseCase;
 import com.example.application.election.port.out.ElectionOutPort;
-import com.example.domain.Election;
+import com.example.domain.election.Election;
 
 import lombok.RequiredArgsConstructor;
 

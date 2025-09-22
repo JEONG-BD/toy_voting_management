@@ -1,8 +1,9 @@
 package com.example.adapter.election.in.web;
 
+import com.example.adapter.election.dto.ElectionUpdateRequestDto;
 import com.example.application.election.port.in.*;
 import com.example.adapter.election.dto.ElectionResponseDto;
-import com.example.domain.Election;
+import com.example.domain.election.Election;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,9 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/election")
@@ -20,14 +24,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Tag(name="Election", description="Api for election")
 public class ElectionController {
 
-    @Autowired
-    private ElectionRegisterUseCase registerUseCase;
-    @Autowired
-    private ElectionFindByIdUseCase findUseCase;
-    @Autowired
-    private ElectionUpdateUseCase updateUseCase;
-    @Autowired
-    private ElectionDeleteUseCase deleteUseCase;
+    private final ElectionRegisterUseCase registerUseCase;
+    private final ElectionFindByIdUseCase findUseCase;
+    private final ElectionFindAllUseCase findAllUseCase;
+    private final ElectionUpdateUseCase updateUseCase;
+    private final ElectionDeleteUseCase deleteUseCase;
 
 
     @PostMapping
@@ -40,10 +41,25 @@ public class ElectionController {
         return "Success";
     }
 
-    @GetMapping("/{electionId}")
-    public ResponseEntity<Election> findElection(@PathVariable("electionId") Long electionId) {
-        Election election = findUseCase.findById(electionId);
-        return ResponseEntity.ok().body(election);
+    //@GetMapping("/{electionId}")
+    //public ResponseEntity<Election> findElection(@PathVariable("electionId") Long electionId) {
+    //    Election election = findUseCase.findById(electionId);
+    //    return ResponseEntity.ok().body(election);
+    //}
+
+    @GetMapping
+    public ResponseEntity<List<Election>> findElection(@RequestParam(name = "id", required = false) Long electionId,
+                                                 @RequestParam(name = "title",required = false) String name,
+                                                 @RequestParam(name = "description",required = false) String description,
+                                                 @RequestParam(name = "startDate",required = false) LocalDateTime startDate,
+                                                 @RequestParam(name = "endDate",required = false) LocalDateTime endDate,
+                                                 @RequestParam(name = "status",required = false) String status
+
+                                                 ) {
+
+        ElectionFindFilterCommand command = new ElectionFindFilterCommand(electionId, name, description, startDate, endDate, status);
+        List<Election> result = findAllUseCase.findByFilter(command);
+        return ResponseEntity.ok(result);
     }
 
     @DeleteMapping("/{electionId}")
@@ -53,7 +69,7 @@ public class ElectionController {
     }
 
     @PatchMapping
-    public ResponseEntity<ElectionResponseDto> updateElection(@RequestBody ElectionRequestDto dto) {
+    public ResponseEntity<ElectionResponseDto> updateElection(@RequestBody ElectionUpdateRequestDto dto) {
 
         ElectionUpdateCommand command = new ElectionUpdateCommand(dto.id(),
                 dto.title(),

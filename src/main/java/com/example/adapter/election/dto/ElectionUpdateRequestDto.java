@@ -2,7 +2,8 @@ package com.example.adapter.election.dto;
 
 import java.time.LocalDateTime;
 
-public record ElectionRequestDto(
+public record ElectionUpdateRequestDto(
+                                 Long id,
                                  String title,
                                  String description,
                                  LocalDateTime startDate,

@@ -6,8 +6,8 @@ import com.example.application.election.port.in.ElectionRegisterCommand;
 import com.example.application.election.port.in.ElectionRegisterUseCase;
 
 import com.example.application.election.port.out.ElectionOutPort;
-import com.example.domain.Election;
-import com.example.domain.ElectionStatus;
+import com.example.domain.election.Election;
+import com.example.domain.election.ElectionStatus;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
