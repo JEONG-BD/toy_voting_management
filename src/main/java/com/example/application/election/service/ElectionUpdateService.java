@@ -21,6 +21,10 @@ public class ElectionUpdateService implements ElectionUpdateUseCase {
     @Override
     @Transactional
     public Election updateElection(ElectionUpdateCommand command) {
+        electionPort.findById(command.getId());
+
+
+
         Election election = Election.withId(command.getId(),
                 command.getTitle(),
                 command.getDescription(),

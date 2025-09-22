@@ -17,7 +17,6 @@ public class ElectionFindAllService implements ElectionFindAllUseCase {
 
     @Override
     public List<Election> findByFilter(ElectionFindFilterCommand command) {
-        List<Election> byFilter = electionOutPort.findByFilter(command);
-        return byFilter;
+        return electionOutPort.findByFilter(command);
     }
 }

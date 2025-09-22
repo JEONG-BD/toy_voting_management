@@ -32,8 +32,12 @@ public class Election {
         return new Election(null, title, description, startDate, enDate, status);
     }
 
-        public static Election withId(Long id, String title, String description, LocalDateTime startDate, LocalDateTime enDate, ElectionStatus status ){
-        return new Election(id, title, description, startDate, enDate, status);
+    public static Election withId(Long id, String title, String description, LocalDateTime startDate, LocalDateTime endDate, ElectionStatus status ){
+        return new Election(id, title, description, startDate, endDate, status);
+    }
+
+    public Election update(Long id, String title, String description, LocalDateTime startDate, LocalDateTime endDate, ElectionStatus status){
+        return new Election()
     }
 
 }
