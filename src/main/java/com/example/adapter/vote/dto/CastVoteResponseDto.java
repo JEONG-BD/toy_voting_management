@@ -1,11 +1,11 @@
 package com.example.adapter.vote.dto;
 
-import com.example.domain.Vote;
+import com.example.domain.vote.Vote;
 
-public record CastVoteResponseDTO(Long voteId, long voterId, long candidateId) {
+public record CastVoteResponseDto(Long voteId, long voterId, long candidateId) {
 
-    public static CastVoteResponseDTO from(Vote vote){
-        return new CastVoteResponseDTO(vote.getId(),
+    public static CastVoteResponseDto from(Vote vote){
+        return new CastVoteResponseDto(vote.getId(),
                 vote.getVoter().getId(),
                 vote.getCandidate().getId());
     }
